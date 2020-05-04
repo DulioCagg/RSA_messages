@@ -1,0 +1,53 @@
+body {
+  background-color: rgba(0, 255, 255, 0.16);
+}
+
+.writeMess {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.login {
+  background-color: white;
+}
+
+.top {
+  width: 70%;
+}
+
+.tab {
+  width: 90%;
+  background-color: white;
+  border-radius: 1.3em;
+  margin: 2em;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.login {
+  padding: 3em;
+  margin-top: 25vh;
+  border-style: solid;
+  border-color: rgb(146, 146, 146);
+  border-radius: 2em;
+  box-shadow: 7px 10px 8px gray;
+}
+
+h2, h3 {
+  padding: 10px 0px;
+}

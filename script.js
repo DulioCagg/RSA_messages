@@ -1,6 +1,6 @@
 const bigInt = require('big-integer');
 
-class RSA {
+module.exports = class RSA {
 
   // Generates a random number within the number of bites passed
   static randomPrime(numberBits) {
@@ -86,21 +86,3 @@ class RSA {
     return result;
   }
 }
-
-const user = "dulio";
-const message = "meet me after the toga party"
-const key = RSA.toKey(user);
-
-const userKeys = RSA.generate(key);
-
-const encoded_message = RSA.encode(message);
-const encrypted_message = RSA.encrypt(encoded_message, userKeys.n, userKeys.e);
-const decrypted_message = RSA.decrypt(encrypted_message, userKeys.d, userKeys.n);
-const decoded_message = RSA.decode(decrypted_message);
-
-console.log("message: ", message);
-console.log("Encrypted: ", encrypted_message.toString());
-console.log("Decoded: ", decoded_message.toString());
-
-
-exports.RSA = RSA;
