@@ -11,6 +11,7 @@ const generateKeys = (name) => {
    const size = RSA.toKey(lower);
    const keys = RSA.generate(size);
    users[name] = keys;
+   messages[name] = [];
 }
 
 temp.forEach(user => generateKeys(user))
@@ -29,7 +30,7 @@ app.use(express.static("interface"));
 app.get("/users", (req, res) => {
    const list = Object.keys(users).filter(user => user != currentUser);
 
-   res.json({ users: list }).status(200);
+   res.json(list).status(200);
 });
 
 app.get("/messages", (req, res) => {
@@ -49,9 +50,12 @@ app.post("/send", (req, res) => {
       message,
       from: currentUser,
       encrypted: encrypted_message,
-      decrypted: decrypted_message
+      decoded: decoded_message
    }
+   console.log(to)
+   console.log(messages)
    messages[to].push(messageToAdd);
+   console.log(messages[to]);
 
    res.json({ encrypted: encrypted_message }).status(200);
 });
@@ -63,7 +67,6 @@ app.post("/register", (req, res) => {
    console.log("The user loged in is: ", currentUser);
    if (typeof users[reqUser] === "undefined") {
       generateKeys(reqUser);
-      messages[reqUser] = [];
       res.json({}).status(200);
    } else {
       res.json({}).status(200);
