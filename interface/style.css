@@ -51,3 +51,11 @@ body {
 h2, h3 {
   padding: 10px 0px;
 }
+
+p, td {
+  word-wrap: break-word;
+}
+
+table {
+  table-layout: fixed;
+}
